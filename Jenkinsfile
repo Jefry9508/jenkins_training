@@ -1,35 +1,35 @@
 pipeline {
 
-  agent any
-  
+  agent {
+
+    label 'standard-slave'
+
+  }
+
   stages {
-  
-    stage("build") {
-    
-      steps {
-      
-        echo 'building the application'
-      
+
+    stage("Verifying dependencies") {
+      steps{
+        sh 'docker -v'
       }
-    
     }
-    
-    stage("test") {
-    
-      steps {
-      
-        echo 'testing the application'
-      
+
+    stage("Test execution") {
+
+      steps{
+
+        docker.image("jeffrycardona/test_automator:latest").inside() {  
+
+          echo 'Running inside Docker'
+
+          sh 'automate.sh  -a "$ARGS" -p "$PARAMS" -n "$PROJNAME" -m "$APPNAME" -V "$VERSION"'
+
+        }
+
       }
-    
-    }
-    
-    stage("deploy") {
-    
-      steps {
-      
-        echo 'deploying the application'
-      
+
+      stage("Ending execution") {
+        echo 'The JMeter tests were successfully executed'
       }
     
     }
