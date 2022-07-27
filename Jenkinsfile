@@ -8,17 +8,17 @@ pipeline {
 
   stages {
 
-    stage("Verifying dependencies") {
+    stage('Verifying dependencies') {
       steps{
         sh 'docker -v'
       }
     }
 
-    stage("Test execution") {
+    stage('Test execution') {
 
       steps{
 
-        docker.image("jeffrycardona/test_automator:latest").inside() {  
+        docker.image('jeffrycardona/test_automator:latest').inside() {  
 
           echo 'Running inside Docker'
 
@@ -28,7 +28,7 @@ pipeline {
 
       }
 
-      stage("Ending execution") {
+      stage('Ending execution') {
         echo 'The JMeter tests were successfully executed'
       }
     
