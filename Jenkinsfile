@@ -10,9 +10,9 @@ pipeline {
 
     stage('Verifying dependencies') {
       steps{
-        echo "PROJNAME: ""${params.PROJNAME}"""
-        echo "VERSION: ""${params.VERSION}"""
-        echo "APPNAME: ""${params.APPNAME}"""
+        echo 'PROJNAME: "${params.PROJNAME}"'
+        echo 'VERSION: "${params.VERSION}"'
+        echo 'APPNAME: "${params.APPNAME}"'
       }
     }
 
