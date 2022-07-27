@@ -29,11 +29,13 @@ pipeline {
 
 
       }
-
-      stage('Ending execution') {
-        echo 'The JMeter tests were successfully executed'
-      }
     
+    }
+
+    stage('Ending execution') {
+
+        echo 'The JMeter tests were successfully executed'
+        
     }
   
   }
