@@ -8,11 +8,13 @@ pipeline {
 
   stages {
 
-    stage('Verifying dependencies') {
+    stage('Verifying properties') {
       steps{
         echo "PROJNAME: '${params.PROJNAME}'"
         echo "VERSION: '${params.VERSION}'"
         echo "APPNAME: '${params.APPNAME}'"
+        echo "ARGS: '${params.ARGS}'"
+        echo "PARAMS: '${params.PARAMS}'"
       }
     }
 
