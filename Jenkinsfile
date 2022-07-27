@@ -10,33 +10,35 @@ pipeline {
 
     stage('Verifying dependencies') {
       steps{
-        sh 'docker -v'
+        echo $PROJNAME
+        echo $VERSION
+        echo $APPNAME
       }
     }
 
-    stage('Test execution') {
+    // stage('Test execution') {
 
-      steps{
-        script {
-          docker.image('jeffrycardona/test_automator:latest').inside() {  
+    //   steps{
+    //     script {
+    //       docker.image('jeffrycardona/test_automator:latest').inside() {  
 
-            echo 'Running inside Docker'
+    //         echo 'Running inside Docker'
 
-            sh 'automate.sh  -a "$ARGS" -p "$PARAMS" -n "$PROJNAME" -m "$APPNAME" -V "$VERSION"'
+    //         sh 'automate.sh  -a "$ARGS" -p "$PARAMS" -n "$PROJNAME" -m "$APPNAME" -V "$VERSION"'
 
-          }
-        }
+    //       }
+    //     }
 
 
-      }
+    //   }
     
-    }
+    // }
 
     stage('Ending execution') {
       steps{
 
         echo 'The JMeter tests were successfully executed'
-        
+
       }
 
     }
