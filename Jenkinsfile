@@ -26,7 +26,7 @@ pipeline {
 
             echo "Running inside Docker"
 
-            sh "automate.sh  -a \\\"${params.ARGS}\\\" -p \\\"${params.PARAMS}\\\" -n \\\"${params.PROJNAME}\\\" -m \\\"${params.APPNAME}\\\" -V \\\"${params.VERSION}\\\""
+            sh "automate.sh  -a \"${params.ARGS}\" -p \"${params.PARAMS}\" -n \"${params.PROJNAME}\" -m \"${params.APPNAME}\" -V \"${params.VERSION}\""
 
           }
         }
