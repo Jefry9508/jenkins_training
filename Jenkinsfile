@@ -33,9 +33,12 @@ pipeline {
     }
 
     stage('Ending execution') {
+      steps{
 
         echo 'The JMeter tests were successfully executed'
         
+      }
+
     }
   
   }
