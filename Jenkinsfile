@@ -18,25 +18,25 @@ pipeline {
       }
     }
 
-    // stage('Test execution') {
+    stage('Test execution') {
 
-    //   steps{
-    //     script {
-    //       docker.image('jeffrycardona/test_automator:latest').inside() {  
+      steps{
+        script {
+          docker.image('jeffrycardona/test_automator:latest').inside() {  
 
-    //         echo "Running inside Docker"
+            echo "Running inside Docker"
 
-    //         sh "automate.sh  -a "${ARGS}" -p "$PARAMS" -n "$PROJNAME" -m "$APPNAME" -V "$VERSION""
+            sh "automate.sh  -a '${params.ARGS}' -p '${params.PARAMS}' -n '${params.PROJNAME}' -m '${params.APPNAME}' -V '${params.VERSION}'"
 
-    //       }
-    //     }
+          }
+        }
 
-
-    //   }
+      }
     
-    // }
+    }
 
     stage('Ending execution') {
+      
       steps{
 
         echo 'The JMeter tests were successfully executed'
