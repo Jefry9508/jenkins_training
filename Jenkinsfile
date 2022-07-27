@@ -10,9 +10,9 @@ pipeline {
 
     stage('Verifying dependencies') {
       steps{
-        echo "PROJNAME: ${params.PROJNAME}"
-        echo "VERSION: ${params.VERSION}"
-        echo "APPNAME: ${params.APPNAME}"
+        echo "PROJNAME: ""${params.PROJNAME}"""
+        echo "VERSION: ""${params.VERSION}"""
+        echo "APPNAME: ""${params.APPNAME}"""
       }
     }
 
@@ -22,9 +22,9 @@ pipeline {
     //     script {
     //       docker.image('jeffrycardona/test_automator:latest').inside() {  
 
-    //         echo 'Running inside Docker'
+    //         echo "Running inside Docker"
 
-    //         sh 'automate.sh  -a "$ARGS" -p "$PARAMS" -n "$PROJNAME" -m "$APPNAME" -V "$VERSION"'
+    //         sh "automate.sh  -a "${ARGS}" -p "$PARAMS" -n "$PROJNAME" -m "$APPNAME" -V "$VERSION""
 
     //       }
     //     }
