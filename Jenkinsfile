@@ -22,10 +22,10 @@ pipeline {
 
       steps{
         script {
-          docker.image('jeffrycardona/test_automator:latest').withRun('--name test_aut -u root') {  
+          docker.image('jeffrycardona/test_automator:latest').withRun('-it --name test_aut -u root') {  
 
             echo 'Running inside Docker'
-            sh 'docker ps -a'
+            sh 'docker ps'
             sh 'docker logs --details test_aut'
             //sh "docker exec test_aut ls"
             //sh "automate.sh  -a \"${params.ARGS}\" -p \"${params.PARAMS}\" -n \"${params.PROJNAME}\" -m \"${params.APPNAME}\" -V \"${params.VERSION}\""
