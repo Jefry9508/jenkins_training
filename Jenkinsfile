@@ -22,7 +22,7 @@ pipeline {
 
       steps{
         script {
-          docker.image('jeffrycardona/test_automator:latest').withRun("-u root") {  
+          docker.image('jeffrycardona/test_automator:latest').withRun("--name test_aut -u root") {  
 
             echo "Running inside Docker"
             sh "docker ps"
