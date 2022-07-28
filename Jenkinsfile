@@ -27,8 +27,7 @@ pipeline {
             echo 'Running inside Docker'
             sh 'docker ps'
             
-            sh "docker exec test_aut ls"
-            //sh "automate.sh  -a \"${params.ARGS}\" -p \"${params.PARAMS}\" -n \"${params.PROJNAME}\" -m \"${params.APPNAME}\" -V \"${params.VERSION}\""
+            sh "automate.sh  -a \"${params.ARGS}\" -p \"${params.PARAMS}\" -n \"${params.PROJNAME}\" -m \"${params.APPNAME}\" -V \"${params.VERSION}\""
 
           }
         }
