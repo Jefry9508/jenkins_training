@@ -25,8 +25,8 @@ pipeline {
           docker.image('jeffrycardona/test_automator:latest').inside("-u root") {  
 
             echo "Running inside Docker"
-
-            sh "automate.sh  -a \"${params.ARGS}\" -p \"${params.PARAMS}\" -n \"${params.PROJNAME}\" -m \"${params.APPNAME}\" -V \"${params.VERSION}\""
+            sh "ls"
+            //sh "automate.sh  -a \"${params.ARGS}\" -p \"${params.PARAMS}\" -n \"${params.PROJNAME}\" -m \"${params.APPNAME}\" -V \"${params.VERSION}\""
 
           }
         }
