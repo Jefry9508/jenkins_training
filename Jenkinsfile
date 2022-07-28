@@ -15,6 +15,7 @@ pipeline {
         echo "APPNAME: '${params.APPNAME}'"
         echo "ARGS: '${params.ARGS}'"
         echo "PARAMS: '${params.PARAMS}'"
+        sh "docker ps"
       }
     }
 
@@ -25,12 +26,11 @@ pipeline {
           docker.image('jeffrycardona/test_automator:latest').inside("-u root") {  
 
             echo "Running inside Docker"
-            sh "docker ps"
             //sh "automate.sh  -a \"${params.ARGS}\" -p \"${params.PARAMS}\" -n \"${params.PROJNAME}\" -m \"${params.APPNAME}\" -V \"${params.VERSION}\""
 
           }
         }
-
+        sh "docker ps"
       }
     
     }
