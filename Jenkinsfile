@@ -19,15 +19,16 @@ pipeline {
     
     }
 
-    // stage('Run docker container and execute test') {
+    stage('Run docker container and execute test') {
 
-    //   steps{
-    //     script{
-    //       customImage.withRun("-it --name automation_tests"){
-    //         sh 'docker logs --details automation_tests'
-    //       }
-    //     }
-    //   }
+      steps{
+        script{
+          // customImage.withRun("-it --name automation_tests"){
+          //   sh 'docker logs --details automation_tests'
+          // }
+          sh 'echo "Final'
+        }
+      }
 
     }
   
