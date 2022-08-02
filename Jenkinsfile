@@ -8,32 +8,22 @@ pipeline {
 
   stages {
 
-    stage('Verifying properties') {
-      steps{
-        echo "PROJNAME: '${params.PROJNAME}'"
-        echo "VERSION: '${params.VERSION}'"
-        echo "APPNAME: '${params.APPNAME}'"
-        echo "ARGS: '${params.ARGS}'"
-        echo "PARAMS: '${params.PARAMS}'"
-      }
-    }
-
-    stage('Test execution') {
+    stage('Build docker image') {
 
       steps{
-        sh 'ls'
-        // customImage = docker.build("my-image:${env.BUILD_ID}")
-        
+        script{
+          customImage = docker.build("automation_base:latest", "--no-cache --build-arg USER_GIT='${param.USER_GIT}' --build-arg PASS_GIT='${param.PASS_GIT}' --build-arg URL_PERF='${param.URL_PERF}' --build-arg USER_PERF='${param.USER_PERF}' --build-arg PASS_PERF='${param.PASS_PERF}' --build-arg ARGS='${param.ARGS}' --build-arg PARAMS='${param.PARAMS}' --build-arg PROJNAME='${param.PROJNAME}' --build-arg APPNAME='${param.APPNAME}' --build-arg VERSION='${param.VERSION}'")
+        }
       }
     
     }
 
-    stage('Ending execution') {
+    stage('Run docker container and execute test') {
 
       steps{
-
-        echo 'The JMeter tests were successfully executed'
-
+        script{
+          customImage.withRun("automation_base:latest")
+        }
       }
 
     }
