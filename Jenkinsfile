@@ -23,8 +23,8 @@ pipeline {
 
       steps{
         script{
-          customImage.withRun(){
-            sh 'echo "Finishing tests execution"'
+          customImage.withRun("--name automation_tests"){
+            sh 'docker logs --details automation_tests'
           }
         }
       }
