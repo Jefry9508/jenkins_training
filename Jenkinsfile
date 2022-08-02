@@ -21,15 +21,9 @@ pipeline {
     stage('Test execution') {
 
       steps{
-        script {
-          docker.image('jeffrycardona/test_automator:latest').inside('-it --name test_aut -u root') {  
-
-            echo 'Running inside Docker'
-            sh 'pwd'
-            //sh "docker exec test_aut automate.sh  -a \"${params.ARGS}\" -p \"${params.PARAMS}\" -n \"${params.PROJNAME}\" -m \"${params.APPNAME}\" -V \"${params.VERSION}\""
-
-          }
-        }
+        sh 'ls'
+        // customImage = docker.build("my-image:${env.BUILD_ID}")
+        
       }
     
     }
