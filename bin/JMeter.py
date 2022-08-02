@@ -3,6 +3,7 @@ import getopt
 import os
 import platform
 import logging
+import traceback
 from datetime import datetime
 from LoadInjector import LoadInjector
 
@@ -78,6 +79,7 @@ class JMeter(LoadInjector):
                 raise Exception()
         except Exception as e:
             logging.error(str(e))
+            logging.error(traceback.format_exc())
             raise Exception(f"Error reading the arguments needed to run the {self.name} command. You may have written an argument wrong or missing arguments.")
     
 
