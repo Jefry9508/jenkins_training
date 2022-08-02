@@ -23,7 +23,9 @@ pipeline {
 
       steps{
         script{
-          customImage.withRun("automation_base:latest")
+          customImage.withRun("automation_base:latest"){
+            sh 'echo "Finishing tests execution"'
+          }
         }
       }
 
