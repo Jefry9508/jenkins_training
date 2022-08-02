@@ -70,8 +70,7 @@ class JMeter(LoadInjector):
                     self.pathJMX = specific_arg[1]
                     logging.info(f"Path JMX file: {self.pathJMX}")
                 elif specific_arg[0] in (self.short_args_jmeter["jtl"], self.long_args_jmeter["jtl"]):
-                    self.working_dir = os.path.join(os.getcwd(), self.jtl_files_dir, "test_results")
-                    os.mkdir(self.working_dir)
+                    self.working_dir = os.path.join(os.getcwd(), self.jtl_files_dir)
                     self.pathJTL = os.path.join(self.working_dir, specific_arg[1])
                     logging.info(f"Path JTL file: {self.pathJTL}")
             
