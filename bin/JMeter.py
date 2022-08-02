@@ -77,7 +77,7 @@ class JMeter(LoadInjector):
             if self.pathJMX == "" or self.pathJTL == "":
                 raise Exception()
         except Exception as e:
-            
+            logging.error(str(e))
             raise Exception(f"Error reading the arguments needed to run the {self.name} command. You may have written an argument wrong or missing arguments.")
     
 
