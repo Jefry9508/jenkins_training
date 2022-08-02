@@ -25,7 +25,7 @@ pipeline {
           customImage.withRun("-it --name automation_tests"){
             sh 'docker wait automation_tests'
           }
-          sh 'Execution completed'
+          sh 'echo "Execution completed"'
         }
       }
 
