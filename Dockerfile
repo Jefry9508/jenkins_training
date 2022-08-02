@@ -64,6 +64,8 @@ ENV AUTOMATION_HOME=/opt/automation_tool
 WORKDIR ${AUTOMATION_HOME}
 COPY . ${AUTOMATION_HOME}
 RUN rm Dockerfile
+RUN cd ${AUTOMATION_HOME}/bin
+RUN chmod +x automate.sh
 # Step 12:
 # Update PATH
 ENV PATH="$AUTOMATION_HOME/bin:${JMETER_HOME}/bin:${PATH}"
