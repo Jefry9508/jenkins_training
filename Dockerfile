@@ -3,7 +3,7 @@
 FROM python:3.7.13
 # Step 2:
 # Create environment args and variables
-ARG JMETER_VERSION="5.5"
+ARG JMETER_VERSION="5.6.3"
 ARG CMDRUNNER_JAR_VERSION="2.2.1"
 ARG JMETER_PLUGINS_MANAGER_VERSION="1.6"
 ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
